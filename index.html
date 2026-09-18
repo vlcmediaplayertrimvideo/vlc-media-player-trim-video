@@ -1,1 +1,554 @@
+```html id="vlctrim01"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VLC Media Player Trim Video | Cut & Save Video Clips</title>
+
+<meta name="description" content="Learn how to trim video with VLC Media Player using its recording controls. Simple guide for creating shorter clips on Windows PC.">
+<meta name="keywords" content="VLC media player trim video, trim video VLC, cut video with VLC, VLC video clip, VLC Windows">
+<meta name="robots" content="index, follow">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0b0d10;
+  color:#f5f5f5;
+  line-height:1.6;
+}
+
+a{text-decoration:none}
+.container{width:90%;max-width:1100px;margin:auto}
+
+/* HEADER */
+header{
+  background:#101318;
+  border-bottom:1px solid #292d33;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav{
+  min-height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:800;
+}
+
+.logo span{color:#ff8a00}
+
+nav a{
+  color:#a2a8b0;
+  margin-left:18px;
+  font-size:14px;
+}
+
+/* HERO */
+.hero{
+  padding:95px 20px 75px;
+  text-align:center;
+  background:
+  radial-gradient(circle at top,rgba(255,138,0,.20),transparent 42%),
+  #0b0d10;
+}
+
+.vlc-icon{
+  width:85px;
+  height:85px;
+  margin:0 auto 22px;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  font-size:42px;
+  background:#ff8a00;
+  box-shadow:0 20px 60px rgba(255,138,0,.22);
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:14px;
+}
+
+.hero h1 span{color:#ff9d24}
+
+.hero p{
+  color:#a3a9b1;
+  max-width:680px;
+  margin:0 auto 28px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:9px;
+  background:#ff8a00;
+  color:#16100a;
+  font-weight:800;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  background:#ffa126;
+}
+
+/* SECTIONS */
+section{padding:65px 0}
+
+.title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.title h2{font-size:33px}
+.title p{color:#89919b;margin-top:6px}
+
+/* PLAYER */
+.player{
+  max-width:800px;
+  margin:auto;
+  background:#12161b;
+  border:1px solid #30353c;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.screen{
+  height:270px;
+  display:grid;
+  place-items:center;
+  background:
+  linear-gradient(145deg,#1d2228,#080a0c);
+}
+
+.play{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#ff8a00;
+  color:#111;
+  font-size:27px;
+}
+
+.timeline{
+  padding:25px;
+}
+
+.track{
+  height:8px;
+  background:#333941;
+  border-radius:20px;
+  position:relative;
+  margin-bottom:20px;
+}
+
+.selected{
+  width:47%;
+  height:100%;
+  margin-left:25%;
+  background:#ff8a00;
+  border-radius:20px;
+}
+
+.controls{
+  display:flex;
+  justify-content:space-between;
+  color:#8d949d;
+  font-size:13px;
+}
+
+/* STEPS */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.step{
+  background:#12161b;
+  border:1px solid #2b3037;
+  border-radius:14px;
+  padding:24px;
+}
+
+.number{
+  color:#ff9d24;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:9px;
+}
+
+.step h3{margin-bottom:7px}
+
+.step p{
+  color:#8f969f;
+  font-size:14px;
+}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.feature{
+  text-align:center;
+  padding:25px 18px;
+  background:#12161b;
+  border:1px solid #2b3037;
+  border-radius:14px;
+}
+
+.feature-icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.feature p{
+  color:#8e959e;
+  font-size:14px;
+}
+
+/* TIP */
+.tip{
+  max-width:800px;
+  margin:auto;
+  padding:24px;
+  border-left:4px solid #ff8a00;
+  background:#15181d;
+  border-radius:8px;
+}
+
+.tip strong{color:#ff9d24}
+.tip p{color:#9ca3ab;margin-top:5px}
+
+/* CTA */
+.cta{
+  text-align:center;
+  background:#12161b;
+  border-top:1px solid #292e34;
+  border-bottom:1px solid #292e34;
+}
+
+.cta h2{
+  font-size:35px;
+  margin-bottom:8px;
+}
+
+.cta p{
+  color:#9299a2;
+  margin-bottom:23px;
+}
+
+/* FAQ */
+.faq{max-width:800px;margin:auto}
+
+details{
+  background:#12161b;
+  border:1px solid #2b3037;
+  border-radius:11px;
+  padding:17px 20px;
+  margin-bottom:11px;
+}
+
+summary{cursor:pointer;font-weight:bold}
+
+details p{
+  margin-top:9px;
+  color:#9097a0;
+  font-size:14px;
+}
+
+footer{
+  padding:32px;
+  text-align:center;
+  color:#666e77;
+  font-size:13px;
+}
+
+@media(max-width:760px){
+  nav{display:none}
+  .hero h1{font-size:36px}
+  .steps,.features{grid-template-columns:1fr}
+  .screen{height:210px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+  <div class="logo">🎬 VLC <span>Video Tools</span></div>
+
+  <nav>
+    <a href="#guide">Trim Guide</a>
+    <a href="#features">Features</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="vlc-icon">🎞️</div>
+
+  <h1>VLC Media Player <span>Trim Video</span></h1>
+
+  <p>
+    Create shorter video clips with VLC Media Player
+    using its built-in playback and recording controls.
+  </p>
+
+  <a href="https://linktr.ee/Setup_Link"
+     target="_blank"
+     rel="noopener"
+     class="btn">
+     Get VLC Media Player →
+  </a>
+
+</section>
+
+
+<!-- VIDEO WORKSPACE -->
+
+<section>
+
+<div class="container">
+
+  <div class="title">
+    <h2>✂️ Video Clip Workspace</h2>
+    <p>Select the part of your video you want to keep.</p>
+  </div>
+
+  <div class="player">
+
+    <div class="screen">
+      <div class="play">▶</div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="track">
+        <div class="selected"></div>
+      </div>
+
+      <div class="controls">
+        <span>00:00</span>
+        <strong>✂️ SELECTED CLIP</strong>
+        <span>04:35</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+
+<!-- GUIDE -->
+
+<section id="guide">
+
+<div class="container">
+
+  <div class="title">
+    <h2>🎬 How to Trim Video in VLC</h2>
+    <p>A simple recording-based method for creating a clip.</p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="number">STEP 01</div>
+      <h3>📂 Open Video</h3>
+      <p>Open your source video inside VLC Media Player.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">STEP 02</div>
+      <h3>🎛 Advanced Controls</h3>
+      <p>Enable Advanced Controls from VLC's View menu.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">STEP 03</div>
+      <h3>🔴 Record Clip</h3>
+      <p>Start recording at the beginning of the section you want.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">STEP 04</div>
+      <h3>⏹ Stop & Save</h3>
+      <p>Stop recording at the desired endpoint to create the clip.</p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <h2>🟠 Need VLC on Your PC?</h2>
+
+  <p>Play media and access VLC's useful video controls.</p>
+
+  <a href="https://linktr.ee/Setup_Link"
+     target="_blank"
+     rel="noopener"
+     class="btn">
+     Get VLC for Windows
+  </a>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section id="features">
+
+<div class="container">
+
+  <div class="title">
+    <h2>⚡ VLC Media Toolkit</h2>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-icon">🎬</div>
+      <h3>Video Playback</h3>
+      <p>Play a wide range of common media formats.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🔴</div>
+      <h3>Record Clips</h3>
+      <p>Capture selected portions while a video is playing.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🎚️</div>
+      <h3>Playback Controls</h3>
+      <p>Navigate video playback to locate your desired section.</p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+
+<section>
+
+<div class="container">
+
+  <div class="tip">
+
+    <strong>💡 VLC Trim Tip</strong>
+
+    <p>
+      VLC does not provide a traditional timeline trimming editor.
+      A common method is to use its Record control to capture the
+      desired section as a new video clip.
+    </p>
+
+  </div>
+
+</div>
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<div class="container">
+
+  <div class="title">
+    <h2>❓ Quick FAQ</h2>
+  </div>
+
+  <div class="faq">
+
+    <details>
+      <summary>Can VLC Media Player trim a video?</summary>
+      <p>
+        VLC can create a shorter clip by recording the desired
+        portion during playback. It is different from a traditional
+        timeline-based video editor.
+      </p>
+    </details>
+
+    <details>
+      <summary>Where are Advanced Controls in VLC?</summary>
+      <p>
+        On the Windows desktop interface, open the View menu and
+        enable Advanced Controls.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can VLC play the trimmed clip?</summary>
+      <p>
+        Yes. The resulting supported media file can be opened
+        and played in VLC.
+      </p>
+    </details>
+
+  </div>
+
+</div>
+</section>
+
+
+<!-- FINAL CTA -->
+
+<section class="cta">
+
+  <h2>✂️ VLC Media Player Trim Video</h2>
+
+  <p>OPEN • SELECT • RECORD • SAVE</p>
+
+  <a href="https://linktr.ee/Setup_Link"
+     target="_blank"
+     rel="noopener"
+     class="btn">
+     Get VLC Media Player →
+  </a>
+
+</section>
+
+
+<footer>
+  VLC Media Player Video Guide • Independent informational page
+</footer>
+
+</body>
+</html>
+```
 
